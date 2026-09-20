@@ -1,0 +1,29 @@
+{
+  "name": "rinkcheck-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "typecheck": "tsc --noEmit",
+    "test:e2e": "playwright test",
+    "format": "prettier --write src vite.config.ts tsconfig.json package.json index.html",
+    "format:check": "prettier --check src vite.config.ts tsconfig.json package.json index.html"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^5.0.4",
+    "lucide-react": "^0.468.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "typescript": "~5.9.2",
+    "vite": "^7.1.7"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/react": "^19.1.16",
+    "@types/react-dom": "^19.1.9",
+    "prettier": "^3.9.8"
+  }
+}

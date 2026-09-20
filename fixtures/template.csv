@@ -1,0 +1,2 @@
+season,game_id,game_date,home_team,away_team,home_goals,away_goals,home_shots,away_shots,status,venue,updated_at
+2026-27,EXAMPLE-001,2026-09-20,Example Home,Example Away,3,2,28,25,final,Example Ice Hall,2026-09-20T18:00:00Z

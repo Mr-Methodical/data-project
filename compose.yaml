@@ -1,0 +1,29 @@
+services:
+  rinkcheck:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      RINKCHECK_DB_PATH: /app/data/rinkcheck.sqlite3
+      RINKCHECK_FRONTEND_DIR: /app/frontend/dist
+      RINKCHECK_SEED_DEMO: "true"
+    volumes:
+      - rinkcheck-data:/app/data
+    init: true
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=3)"]
+      interval: 30s
+      timeout: 5s
+      start_period: 15s
+      retries: 3
+    stop_grace_period: 15s
+
+volumes:
+  rinkcheck-data:
